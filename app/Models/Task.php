@@ -14,7 +14,7 @@ class Task extends Model
         'description',
         'due-date',
     ];
-
+    public $timestamps = false;
     public function User(){
         return $this->belongsTo('Task::class');
     }
