@@ -14,12 +14,16 @@ class TaskController extends Controller
 
         $tasks = Task::where('user_id', $userId)->get();
 
-        return view('home', ['tasks' => $tasks]);
+        return view('tasks', ['tasks' => $tasks]);
+    }
+
+    public function create()
+    {
+        return view('newTask');
     }
 
     public function store(Request $request)
     {
-        // Validate request
         $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',

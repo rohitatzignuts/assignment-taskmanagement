@@ -3,16 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Task Management') }}</title>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -71,28 +68,6 @@
                 </div>
             </div>
         </nav>
-        <section id="newTaskForm " class="container my-5">
-            <h3 class="text-center"># Add A New Task #</h3>
-            <div class="row justify-content-center align-items-center">
-                <form method="POST" action="{{ route('tasks.store') }}" class="w-50">
-                    @csrf
-                    <div class="mb-3">
-                        <label for="taskTitle" class="form-label">Task Title</label>
-                        <input type="text" class="form-control" id="taskTitle" name="title">
-                    </div>
-                    <div class="mb-3">
-                        <label for="taskDesc" class="form-label">Description</label>
-                        <input type="text" class="form-control" id="taskDesc" name="description">
-                    </div>
-                    <div class="mb-3">
-                        <label for="dueDate" class="form-label">Due Date</label>
-                        <input type="date" class="form-control" id="dueDate" name="dueDate" value="{{ date('Y-m-d') }}">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Create Task</button>
-                </form>
-            </div>
-        </section>
-
         <main class="py-4">
             @yield('content')
         </main>

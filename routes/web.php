@@ -20,8 +20,8 @@ use App\Http\Controllers\TaskController;
 
 
 Auth::routes();
-
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/new-task', [TaskController::class, 'create'])->name('tasks.create');
 Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
 Route::get('/tasks/{task}', [TaskController::class, 'show'])->name('tasks.show');
 Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
