@@ -22,15 +22,10 @@ use App\Http\Controllers\TaskController;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Route::get('/tasks', function () {
-//     return view('tasks',[
-//         'tasks' => Task::all()
-//     ]);
-// });
 Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
-Route::get('/tasks/{task}', function($id){
-    return view('task', [
-        'task' => Task::findorfail($id)
-    ]);
-});
+Route::get('/tasks/{task}', [TaskController::class, 'show'])->name('tasks.show');
+Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
+Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
+Route::get('/tasks/{task}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
+Route::put('/tasks/{task}', [TaskController::class, 'update'])->name('tasks.update');
+

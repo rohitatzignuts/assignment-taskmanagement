@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
@@ -9,13 +10,11 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::all();
-        return view('home', compact('tasks'));
-    }
+        $userId = Auth::id();
 
-    public function create()
-    {
-        // Return view for creating a new task
+        $tasks = Task::where('user_id', $userId)->get();
+
+        return view('home', ['tasks' => $tasks]);
     }
 
     public function store(Request $request)
@@ -24,38 +23,51 @@ class TaskController extends Controller
         $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
-            'due_date' => 'required|date',
+            'dueDate' => 'required|date',
         ]);
 
-        // Create new task
-        Task::create($request->all());
+        $userId = Auth::id();
+
+        $task = new Task();
+        $task->title = $request->input('title');
+        $task->description = $request->input('description');
+        $task->dueDate = $request->input('dueDate');
+        $task->user_id = $userId;
+        $task->save();
 
         // Redirect to index page or show success message
+        return redirect()->route('tasks.index')->with('success', 'Task created successfully');
     }
+
 
     public function show(Task $task)
     {
-        // Return view to show a specific task
+        return view('task',['task' => $task, 'id' => $task->id]);
     }
 
     public function edit(Task $task)
     {
-        // Return view for editing a specific task
+        return view('edit', ['task' => $task]);
     }
 
     public function update(Request $request, Task $task)
     {
-        // Update the task
+        $request->validate([
+            'title' => 'required|string',
+            'description' => 'required|string',
+            'dueDate' => 'required|date',
+        ]);
+
         $task->update($request->all());
 
-        // Redirect to index page or show success message
+        return redirect()->route('tasks.index')->with('success', 'Task updated successfully');
     }
+
 
     public function destroy(Task $task)
     {
         // Delete the task
         $task->delete();
-
-        // Redirect to index page or show success message
+        return redirect()->route('tasks.index')->with('success', 'Task Deleted successfully');
     }
 }

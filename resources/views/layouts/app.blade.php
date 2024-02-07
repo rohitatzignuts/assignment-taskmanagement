@@ -16,8 +16,8 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body>
-    <div id="app">
+<body class="bg-dark text-light">
+    <div id="app" class="">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -71,6 +71,27 @@
                 </div>
             </div>
         </nav>
+        <section id="newTaskForm " class="container my-5">
+            <h3 class="text-center"># Add A New Task #</h3>
+            <div class="row justify-content-center align-items-center">
+                <form method="POST" action="{{ route('tasks.store') }}" class="w-50">
+                    @csrf
+                    <div class="mb-3">
+                        <label for="taskTitle" class="form-label">Task Title</label>
+                        <input type="text" class="form-control" id="taskTitle" name="title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="taskDesc" class="form-label">Description</label>
+                        <input type="text" class="form-control" id="taskDesc" name="description">
+                    </div>
+                    <div class="mb-3">
+                        <label for="dueDate" class="form-label">Due Date</label>
+                        <input type="date" class="form-control" id="dueDate" name="dueDate" value="{{ date('Y-m-d') }}">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create Task</button>
+                </form>
+            </div>
+        </section>
 
         <main class="py-4">
             @yield('content')
