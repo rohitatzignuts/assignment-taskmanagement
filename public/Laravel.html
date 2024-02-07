@@ -1,0 +1,203 @@
+
+<!-- saved from url=(0027)http://127.0.0.1:8000/tasks -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script>
+    function confirmDelete(taskId) {
+        if (confirm('Are you sure you want to delete this task?')) {
+            document.getElementById('deleteForm' + taskId).submit();
+        } else {
+            event.preventDefault();
+        }
+    }
+</script>
+
+
+
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="KtUzSiuv7qCjR5CWH0DtlSapOTVT76u9YesXgNBt">
+    <title>Laravel</title>
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="http://fonts.bunny.net/">
+    <link href="./Laravel_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="./Laravel_files/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- Scripts -->
+    <link rel="preload" as="style" href="./Laravel_files/app-AG5kxafP.css"><link rel="modulepreload" href="./Laravel_files/app-Y_MuImAH.js"><link rel="stylesheet" href="./Laravel_files/app-AG5kxafP.css"><script type="module" src="./Laravel_files/app-Y_MuImAH.js"></script></head>
+<body class="bg-dark text-light">
+    <div id="app" class="">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="http://127.0.0.1:8000/">
+                    Laravel
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav me-auto">
+
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ms-auto">
+                        <!-- Authentication Links -->
+                                                    <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="http://127.0.0.1:8000/tasks#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre="">
+                                    rohit
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="http://127.0.0.1:8000/logout" onclick="event.preventDefault();
+                                                     document.getElementById(&#39;logout-form&#39;).submit();">
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST" class="d-none">
+                                        <input type="hidden" name="_token" value="KtUzSiuv7qCjR5CWH0DtlSapOTVT76u9YesXgNBt" autocomplete="off">                                    </form>
+                                </div>
+                            </li>
+                                            </ul>
+                </div>
+            </div>
+        </nav>
+        <main class="py-4">
+            
+    <div class="container">
+    <section class="container my-5">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h1 class="card-title">Welcome to Taskify: Your Ultimate Task Management Solution</h1>
+                <p class="card-text ">Streamline your productivity, organize your day, and conquer your goals with Taskify – the ultimate task management platform designed to simplify your life.</p>
+            </div>
+          
+        </div>
+    </section>
+    <section class="container my-5">
+        <a href="http://127.0.0.1:8000/new-task" class="btn btn-primary mb-4">Add New Task</a>
+                <ul class="list-group list-group-flush border border-5 rounded">
+            <li class="list-group-item d-flex p-4 justify-content-between">
+                <div>
+                    <h3 href="tasks/6" class="fw-bold font-monospace">Task : last</h3>
+                    <span class="font-monospace">2024-02-29</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <a href="http://127.0.0.1:8000/tasks/6" class="btn btn-primary">View Task</a>
+                        <a href="http://127.0.0.1:8000/tasks/6/edit" class="btn btn-secondary">Edit Task</a>
+                    </div>
+                    <form method="POST" action="http://127.0.0.1:8000/tasks/6" class="ms-1 mb-0 pb-0">
+                        <input type="hidden" name="_token" value="KtUzSiuv7qCjR5CWH0DtlSapOTVT76u9YesXgNBt" autocomplete="off"> <!-- CSRF Protection -->
+                        <input type="hidden" name="_method" value="DELETE"> <!-- Method spoofing for DELETE request -->
+                        <button type="submit" class="btn btn-danger" onclick="confirmDelete(6)">Delete Task</button>
+                    </form>
+                </div>
+            </li>
+        </ul>
+                <ul class="list-group list-group-flush border border-5 rounded">
+            <li class="list-group-item d-flex p-4 justify-content-between">
+                <div>
+                    <h3 href="tasks/5" class="fw-bold font-monospace">Task : fifth</h3>
+                    <span class="font-monospace">2024-02-12</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <a href="http://127.0.0.1:8000/tasks/5" class="btn btn-primary">View Task</a>
+                        <a href="http://127.0.0.1:8000/tasks/5/edit" class="btn btn-secondary">Edit Task</a>
+                    </div>
+                    <form method="POST" action="http://127.0.0.1:8000/tasks/5" class="ms-1 mb-0 pb-0">
+                        <input type="hidden" name="_token" value="KtUzSiuv7qCjR5CWH0DtlSapOTVT76u9YesXgNBt" autocomplete="off"> <!-- CSRF Protection -->
+                        <input type="hidden" name="_method" value="DELETE"> <!-- Method spoofing for DELETE request -->
+                        <button type="submit" class="btn btn-danger" onclick="confirmDelete(5)">Delete Task</button>
+                    </form>
+                </div>
+            </li>
+        </ul>
+                <ul class="list-group list-group-flush border border-5 rounded">
+            <li class="list-group-item d-flex p-4 justify-content-between">
+                <div>
+                    <h3 href="tasks/3" class="fw-bold font-monospace">Task : third</h3>
+                    <span class="font-monospace">2024-02-10</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <a href="http://127.0.0.1:8000/tasks/3" class="btn btn-primary">View Task</a>
+                        <a href="http://127.0.0.1:8000/tasks/3/edit" class="btn btn-secondary">Edit Task</a>
+                    </div>
+                    <form method="POST" action="http://127.0.0.1:8000/tasks/3" class="ms-1 mb-0 pb-0">
+                        <input type="hidden" name="_token" value="KtUzSiuv7qCjR5CWH0DtlSapOTVT76u9YesXgNBt" autocomplete="off"> <!-- CSRF Protection -->
+                        <input type="hidden" name="_method" value="DELETE"> <!-- Method spoofing for DELETE request -->
+                        <button type="submit" class="btn btn-danger" onclick="confirmDelete(3)">Delete Task</button>
+                    </form>
+                </div>
+            </li>
+        </ul>
+                <ul class="list-group list-group-flush border border-5 rounded">
+            <li class="list-group-item d-flex p-4 justify-content-between">
+                <div>
+                    <h3 href="tasks/2" class="fw-bold font-monospace">Task : second</h3>
+                    <span class="font-monospace">2024-02-08</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <a href="http://127.0.0.1:8000/tasks/2" class="btn btn-primary">View Task</a>
+                        <a href="http://127.0.0.1:8000/tasks/2/edit" class="btn btn-secondary">Edit Task</a>
+                    </div>
+                    <form method="POST" action="http://127.0.0.1:8000/tasks/2" class="ms-1 mb-0 pb-0">
+                        <input type="hidden" name="_token" value="KtUzSiuv7qCjR5CWH0DtlSapOTVT76u9YesXgNBt" autocomplete="off"> <!-- CSRF Protection -->
+                        <input type="hidden" name="_method" value="DELETE"> <!-- Method spoofing for DELETE request -->
+                        <button type="submit" class="btn btn-danger" onclick="confirmDelete(2)">Delete Task</button>
+                    </form>
+                </div>
+            </li>
+        </ul>
+                <ul class="list-group list-group-flush border border-5 rounded">
+            <li class="list-group-item d-flex p-4 justify-content-between">
+                <div>
+                    <h3 href="tasks/1" class="fw-bold font-monospace">Task : first</h3>
+                    <span class="font-monospace">2024-02-07</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <a href="http://127.0.0.1:8000/tasks/1" class="btn btn-primary">View Task</a>
+                        <a href="http://127.0.0.1:8000/tasks/1/edit" class="btn btn-secondary">Edit Task</a>
+                    </div>
+                    <form method="POST" action="http://127.0.0.1:8000/tasks/1" class="ms-1 mb-0 pb-0">
+                        <input type="hidden" name="_token" value="KtUzSiuv7qCjR5CWH0DtlSapOTVT76u9YesXgNBt" autocomplete="off"> <!-- CSRF Protection -->
+                        <input type="hidden" name="_method" value="DELETE"> <!-- Method spoofing for DELETE request -->
+                        <button type="submit" class="btn btn-danger" onclick="confirmDelete(1)">Delete Task</button>
+                    </form>
+                </div>
+            </li>
+        </ul>
+                <div class="my-4"><nav>
+        <ul class="pagination">
+            
+                            <li class="page-item disabled" aria-disabled="true" aria-label="« Previous">
+                    <span class="page-link" aria-hidden="true">‹</span>
+                </li>
+            
+            
+                            
+                
+                
+                                                                                        <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
+                                                                                                <li class="page-item"><a class="page-link" href="http://127.0.0.1:8000/tasks?page=2">2</a></li>
+                                                                        
+            
+                            <li class="page-item">
+                    <a class="page-link" href="http://127.0.0.1:8000/tasks?page=2" rel="next" aria-label="Next »">›</a>
+                </li>
+                    </ul>
+    </nav>
+</div>
+    </section>
+    </div>
+
+        </main>
+    </div>
+
+
+</body></html>

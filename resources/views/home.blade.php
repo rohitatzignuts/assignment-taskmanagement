@@ -9,6 +9,7 @@
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
+                        <a href="/tasks">see All Tasks</a>
                     @endif
             </div>
         </div>

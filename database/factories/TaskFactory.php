@@ -13,7 +13,7 @@ class TaskFactory extends Factory
             'user_id' => User::factory(),
             'title' => fake()->catchPhrase(),
             'description' => fake()->realText($maxNbChars = 200, $indexSize = 2),
-            'due-date' => fake()->dateTime(),
+            'dueDate' => fake()->dateTime(),
         ];
     }
 

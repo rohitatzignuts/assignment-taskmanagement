@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->date('due-date');
+            $table->date('dueDate');
             $table->foreignId('user_id');
         });
     }

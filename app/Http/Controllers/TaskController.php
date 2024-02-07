@@ -12,8 +12,7 @@ class TaskController extends Controller
     {
         $userId = Auth::id();
 
-        $tasks = Task::where('user_id', $userId)->get();
-
+        $tasks = Task::where('user_id', $userId)->latest('dueDate')->paginate(5);
         return view('tasks', ['tasks' => $tasks]);
     }
 

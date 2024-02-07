@@ -2,12 +2,12 @@
 
 @section('content')
 
-<div class="container">
+    <div class="container">
     <section class="container my-5">
         <div class="card mb-3">
             <div class="card-body">
                 <h1 class="card-title">Welcome to Taskify: Your Ultimate Task Management Solution</h5>
-                <p class="card-text">Streamline your productivity, organize your day, and conquer your goals with Taskify – the ultimate task management platform designed to simplify your life.</p>
+                <p class="card-text ">Streamline your productivity, organize your day, and conquer your goals with Taskify – the ultimate task management platform designed to simplify your life.</p>
             </div>
           {{-- <img src="{{ asset('img/GettyImages-1206008726_530271_rhxjqd.jpg') }}" class="card-img-top img-fluid" alt="img">  --}}
         </div>
@@ -18,8 +18,8 @@
         <ul class="list-group list-group-flush border border-5 rounded">
             <li class="list-group-item d-flex p-4 justify-content-between">
                 <div>
-                    <h3 href="tasks/{{ $task->id }}" class="">Task : {{ Str::upper($task->title) }}</h3>
-                    <span>{{ $task->dueDate }}</span>
+                    <h3 href="tasks/{{ $task->id }}" class="fw-bold font-monospace">Task : {{ Str::of($task->title)->camel() }}</h3>
+                    <span class="font-monospace">{{ $task->dueDate }}</span>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                     <div>
@@ -35,8 +35,10 @@
             </li>
         </ul>
         @endforeach
+        <div class="my-4">{{ $tasks->links() }}</div>
     </section>
-</div>
+    </div>
+
 @endsection
 <script>
     function confirmDelete(taskId) {
