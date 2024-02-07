@@ -91,4 +91,3 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
-Replace placeholders like `yourusername`, `yourproject`, and `feature` with relevant information for your project. Additionally, customize the database setup and mail configuration instructions based on your application's requirements. Finally, choose an appropriate license for your project and provide a link to it.
