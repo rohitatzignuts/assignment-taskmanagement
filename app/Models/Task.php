@@ -12,7 +12,7 @@ class Task extends Model
     protected $fillable = [
         'title',
         'description',
-        'due-date',
+        'dueDate',
     ];
     public $timestamps = false;
     public function user(){

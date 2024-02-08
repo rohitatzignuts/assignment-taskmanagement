@@ -8,34 +8,38 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
+    // returning all tasks
     public function index()
     {
-        $userId = Auth::id();
-
-        $tasks = Task::where('user_id', $userId)->latest('dueDate')->paginate(5);
+        $tasks = Task::where('user_id', auth()->id())->latest('dueDate')->paginate(5);
         return view('tasks', ['tasks' => $tasks]);
     }
 
+    // creating a new task
     public function create()
     {
         return view('newTask');
     }
 
+    // saving the task created
     public function store(Request $request)
     {
+        // validate incoming data
         $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
             'dueDate' => 'required|date',
         ]);
 
-        $userId = Auth::id();
+        // accept data and create a new task
+        // $taskData = $request->only(['title', 'description', 'dueDate']) + ['user_id' => Auth::id()];
+        // Task::create($taskData);
 
         $task = new Task();
         $task->title = $request->input('title');
         $task->description = $request->input('description');
         $task->dueDate = $request->input('dueDate');
-        $task->user_id = $userId;
+        $task->user_id = auth()->id();
         $task->save();
 
         // Redirect to index page or show success message
