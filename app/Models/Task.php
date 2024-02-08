@@ -15,6 +15,7 @@ class Task extends Model
         'dueDate',
     ];
     public $timestamps = false;
+    // task and user relationship
     public function user(){
         return $this->belongsTo(User::class);
     }

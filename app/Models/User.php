@@ -45,7 +45,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
-
+    // user and task relationship
     public function tasks(){
         return $this->hasMany(Task::class);
     }
